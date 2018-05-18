@@ -22,7 +22,7 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         for (int count = 0; count > -1; count++) {
             System.out.println("Sending message..." + count);
-            rabbitTemplate.convertAndSend(MqpublisherApplication.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!" + count);
+            rabbitTemplate.convertAndSend(PublisherConfig.topicExchangeName, PublisherConfig.key, "Hello from RabbitMQ!" + count);
             Thread.sleep(2000);
         }
 
